@@ -8,9 +8,13 @@ import { useEffect, useState } from 'react';
 
 
 function App() {
+	// eslint-disable-next-line
 	const [details, setDetails] = useState(null);
+	// eslint-disable-next-line
 	const [skills, setSkills] = useState(null);
+	// eslint-disable-next-line
 	const [videos, setVideos] = useState(null);
+	// eslint-disable-next-line
 	const [posts, setPosts] = useState(null);
 
 	const getDetails = async () => {
