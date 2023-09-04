@@ -36,9 +36,15 @@ export default function Hobby() {
                         Skills
                     </div>
                     <div className='row'>
-                        <div className='col-4'>See More</div>
-                        <div className='col-4'>Instagram</div>
-                        <div className='col-4'>YouTube</div>
+                        <div className='col-4'>
+                            <button type="button" class="btn btn-outline-light">See More</button>
+                        </div>
+                        <div className='col-4'>
+                            <button type="button" class="btn btn-outline-light">Instagram</button>
+                        </div>
+                        <div className='col-4'>
+                            <button type="button" class="btn btn-outline-light">YouTube</button>
+                        </div>
                     </div>
                 </div>
             </div>

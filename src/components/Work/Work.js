@@ -33,8 +33,12 @@ export default function Work() {
                         Skills
                     </div>
                     <div className='row'>
-                        <div className='col-6'>See More</div>
-                        <div className='col-6'>Download CV</div>
+                        <div className='col-6'>
+                            <button type="button" class="btn btn-outline-light">See More</button>
+                        </div>
+                        <div className='col-6'>
+                            <button type="button" class="btn btn-outline-light">Download CV</button>
+                        </div>
                     </div>
                 </div>
             </div>
