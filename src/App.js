@@ -1,13 +1,19 @@
 import './App.css';
-import Hobby from './components/Hobby/Hobby';
-import Home from './components/Home/Home';
-import ReachUs from './components/ReachUs/ReachUs';
-import Work from './components/Work/Work';
+import { useLayoutEffect, useState, useRef } from 'react';
 import backendService from './services/backendService';
-import { useEffect, useState } from 'react';
+import Home from './components/Home/Home';
+import Work from './components/Work/Work';
+import Hobby from './components/Hobby/Hobby';
+import ReachUs from './components/ReachUs/ReachUs';
 
 
 function App() {
+
+	const workPage = useRef(null);
+	const hobbyPage = useRef(null);
+	const reachusPage = useRef(null);
+
+
 	// eslint-disable-next-line
 	const [details, setDetails] = useState(null);
 	// eslint-disable-next-line
@@ -18,26 +24,26 @@ function App() {
 	const [posts, setPosts] = useState(null);
 
 	const getDetails = async () => {
-		const detailsResult = await backendService.getDetails();
-		setDetails(detailsResult);
+		const response = await backendService.getDetails();
+		setDetails(response);
 	}
 
 	const getSkills = async () => {
-		const skillsResult = await backendService.getSkills();
-		setSkills(skillsResult);
+		const response = await backendService.getSkills();
+		setSkills(response);
 	}
 
 	const getYouTubeData = async () => {
-		const youTubeDataResult = await backendService.getYouTubeData();
-		setVideos(youTubeDataResult);
+		const response = await backendService.getYouTubeData();
+		setVideos(response);
 	}
 
 	const getInstagramData = async () => {
-		const instagramDataResult = await backendService.getInstagramData();
-		setPosts(instagramDataResult);
+		const response = await backendService.getInstagramData();
+		setPosts(response);
 	}
 
-	useEffect(() => {
+	useLayoutEffect(() => {
 		return () => {
 			getDetails();
 			getSkills();
@@ -48,10 +54,25 @@ function App() {
 
 	return (
 		<>
-			<Home />
-			<Work />
-			<Hobby />
-			<ReachUs />
+			{/* {
+				details && <Home detailsProp={details} workPageProp={workPage} hobbyPageProp={hobbyPage} reachusPageProp={reachusPage} />
+			}
+			{
+				details && skills && <Work ref={workPage} skillsProp={skills} detailsProp={details} />
+			}
+			{
+				skills && videos && posts && <Hobby ref={hobbyPage} skillsProp={skills} videosProp={videos} postsProp={posts} />
+			} */}
+			<Home workPageProp={workPage} hobbyPageProp={hobbyPage} reachusPageProp={reachusPage} />
+			<section ref={workPage}>
+				<Work />
+			</section>
+			<section ref={hobbyPage}>
+				<Hobby />
+			</section>
+			<section ref={reachusPage}>
+				<ReachUs />
+			</section>
 		</>
 	);
 }
