@@ -1,5 +1,6 @@
+import './index.css';
 import './App.css';
-import { useLayoutEffect, useState, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import backendService from './services/backendService';
 import Home from './components/Home/Home';
 import Work from './components/Work/Work';
@@ -22,6 +23,7 @@ function App() {
 	const [videos, setVideos] = useState(null);
 	// eslint-disable-next-line
 	const [posts, setPosts] = useState(null);
+	const [isVisible, setIsVisible] = useState(false);
 
 	const getDetails = async () => {
 		const response = await backendService.getDetails();
@@ -52,6 +54,11 @@ function App() {
 		}
 	}, []);
 
+	useEffect(() => {
+		// When the component mounts, set isVisible to true
+		setIsVisible(true);
+	}, []);
+
 	return (
 		<>
 			{/* {
@@ -63,7 +70,9 @@ function App() {
 			{
 				skills && videos && posts && <Hobby ref={hobbyPage} skillsProp={skills} videosProp={videos} postsProp={posts} />
 			} */}
-			<Home workPageProp={workPage} hobbyPageProp={hobbyPage} reachusPageProp={reachusPage} />
+			<div className={`fade-in-element ${isVisible ? 'visible' : ''}`}>
+				<Home workPageProp={workPage} hobbyPageProp={hobbyPage} reachusPageProp={reachusPage} />
+			</div>
 			<section ref={workPage}>
 				<Work />
 			</section>
