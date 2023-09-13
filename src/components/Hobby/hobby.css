@@ -1,20 +1,114 @@
 .main_hobby_container {
   width: 100%;
-  height: 100vh;
-  background-color: rgb(180, 127, 255);
+  height: auto;
+  min-height: 100vh;
+  background-image: url(/public/assets/bg-5.1.jpg);
+  background-repeat: no-repeat;
+  background-position: center -89%;
+  background-size: cover;
+  /* background-color: rgb(0, 255, 81); */
 }
 
 .sub_left_hobby_container {
-  height: 85vh;
-  background-color: aqua;
+  height: auto;
+  /* background-color: aqua; */
 }
 
 .sub_right_hobby_container {
-  height: 85vh;
-  background-color: rgb(0, 255, 81);
+  height: auto;
+  /* background-color: rgb(0, 255, 81); */
 }
 
-.sub_right_hobby_skill_container {
-  height: 75vh;
-  background-color: blue;
+.icon_hobby_skill {
+  height: 40%;
+  width: 40%;
+  padding-bottom: 10%;
+}
+
+.icon_hobby_container {
+  height: auto;
+  text-align: center;
+  border-bottom: 2px solid grey;
+}
+
+.icon_hobby_container_last {
+  height: auto;
+  text-align: center;
+}
+
+p {
+  font-family: "FontOne", sans-serif;
+}
+
+h1 {
+  font-family: "FontTwo", cursive;
+  font-size: 50px;
+}
+
+.button_download_cv {
+  width: 90%;
+  margin-top: 6%;
+  margin-left: 7%;
+  font-family: "FontOne", sans-serif;
+}
+
+.btn {
+  border-width: 5px;
+  border-radius: 0%;
+}
+
+.instagram_container {
+  height: 83.5vh;
+  width: 84.5%;
+  padding-top: 4%;
+  /* background-color: rgb(0, 255, 81); */
+  border: 2px solid grey;
+  border-radius: 10px;
+  backdrop-filter: blur(12px);
+  /* transform: rotate(90deg); */
+}
+
+.carousel_container {
+  padding: 12px;
+  transform: rotate(90deg);
+  border: 2px solid grey;
+  border-radius: 10px;
+  backdrop-filter: blur(12px);
+  /* background-color: aqua; */
+  /* height: 60vh; */
+  width: 140%;
+  transform-origin: 30% 60%;
+}
+
+.carousel {
+  /* transform-origin: 30% 80%; */
+  border: 5px solid white;
+}
+
+.instagram_heading {
+  font-family: "FontTwo", cursive;
+  font-size: 50px;
+  padding-left: 31%;
+}
+
+.youtube_container {
+  border: 2px solid grey;
+  border-radius: 10px;
+  padding: 12px;
+  /* background-color: aqua; */
+  /* padding-top: 2.5%; */
+  /* padding-bottom: 2.5%; */
+  backdrop-filter: blur(5px);
+  margin-top: 5%;
+}
+
+.button_hobby {
+  width: 100%;
+  font-family: "FontOne", sans-serif;
+  backdrop-filter: blur(12px);
+}
+
+.btn {
+  border-width: 5px;
+  border-radius: 0%;
 }
