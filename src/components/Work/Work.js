@@ -2,6 +2,7 @@ import './work.css'
 import React from 'react'
 import coins from './Hotels.png'
 import coins2 from './coin2.png'
+import Resume from './Resume.pdf'
 
 import { FaReact, FaVuejs, FaHtml5, FaCss3Alt } from 'react-icons/fa'
 import { SiSpringboot } from 'react-icons/si'
@@ -155,7 +156,9 @@ export default function Work() {
                     </div>
                     <div className='row'>
                         <div className='col-12'>
-                            <button type="button" className="btn btn-outline-light button_download_cv btn-lg">Download CV</button>
+                            <a href={Resume} download="Resume" target="_blank" rel="noreferrer">
+                                <button type="button" className="btn btn-outline-light button_download_cv btn-lg">Download CV</button>
+                            </a>
                         </div>
                     </div>
                 </div>
