@@ -142,10 +142,14 @@ export default function Hobby() {
                         </div>
                         <div className='row pt-5'>
                             <div className='col-6'>
-                                <button type="button" className="btn btn-outline-light btn-lg button_hobby">Instagram</button>
+                                <a href="https://www.instagram.com/xaptured__007/" target="_blank" rel="noreferrer">
+                                    <button type="button" className="btn btn-outline-light btn-lg button_hobby">Instagram</button>
+                                </a>
                             </div>
                             <div className='col-6'>
-                                <button type="button" className="btn btn-outline-light btn-lg button_hobby">YouTube</button>
+                                <a href="https://www.youtube.com/channel/UCDKMpLyKzruI-q_aXS5l_Uw" target="_blank" rel="noreferrer">
+                                    <button type="button" className="btn btn-outline-light btn-lg button_hobby">YouTube</button>
+                                </a>
                             </div>
                         </div>
                     </div>
