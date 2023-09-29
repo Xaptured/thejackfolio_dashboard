@@ -1,6 +1,6 @@
 .fade-in-element {
   opacity: 0; /* Start with opacity 0 */
-  transition: opacity 3s ease-in-out; /* Apply a 5-second transition to the opacity property */
+  transition: opacity 1s ease-in-out; /* Apply a 5-second transition to the opacity property */
 }
 
 .fade-in-element.visible {

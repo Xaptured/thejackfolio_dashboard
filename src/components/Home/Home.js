@@ -1,5 +1,7 @@
 import './home.css'
-import React from 'react';
+import React, { useEffect } from 'react';
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 import Navigation from './Navigation'
 
@@ -17,6 +19,10 @@ import Navigation from './Navigation'
 // 	)
 // }
 export default function Home(props) {
+	useEffect(() => {
+		Aos.init({ duration: 2000 });
+	}, []);
+
 	const { workPageProp, hobbyPageProp, reachusPageProp } = props;
 	// TODO: this needs to be fetched from the backend later on.
 	const description = 'Jagdeesh is a Full-Stack developer from Kolkata, India with 2+ years of experience across multiple industries which includes Hotel and Finance domain. Ready to take the responsibility and solving the technical aspects of a product within the time frame. \n Jagdeesh has seen new things in terms of technology and evolved with the same pace and loves to work on the features which helps the product to grow it\'s feet in the market. ';
@@ -37,10 +43,10 @@ export default function Home(props) {
 			<div className='row'>
 				<div className='container col-7 sub_left_home_container'>
 					<div className='container'>
-						<div className='description_container text-wrap'>
+						<div className='description_container text-wrap' data-aos="fade-right">
 							Who is Jagdeesh ?
 						</div>
-						<div className='description_body_container'>
+						<div className='description_body_container' data-aos="fade-up">
 							<p dangerouslySetInnerHTML={{ __html: replaceWithBr() }} />
 						</div>
 						<div className='container'>
