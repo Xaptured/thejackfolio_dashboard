@@ -1,8 +1,10 @@
 import './work.css'
-import React from 'react'
+import React, { useEffect } from 'react'
 import coins from './Hotels.png'
 import coins2 from './coin2.png'
 import Resume from './Resume.pdf'
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 import { FaReact, FaVuejs, FaHtml5, FaCss3Alt } from 'react-icons/fa'
 import { SiSpringboot } from 'react-icons/si'
@@ -34,10 +36,14 @@ import { DiBootstrap } from 'react-icons/di'
 
 export default function Work() {
 
+    useEffect(() => {
+        Aos.init({ duration: 1000 });
+    }, []);
+
     return (
         <div className='container main_work_container pt-5'>
             <div className='row'>
-                <div className='col-7 sub_left_work_container'>
+                <div className='col-7 sub_left_work_container' data-aos="fade-right">
                     <h1>Organizations</h1>
                     <div id="carouselExampleIndicators" className="carousel slide carousel_work_container">
                         <div className="carousel-indicators">
@@ -92,7 +98,7 @@ export default function Work() {
                         </button>
                     </div>
                 </div>
-                <div className='col-5 sub_right_work_container'>
+                <div className='col-5 sub_right_work_container' data-aos="fade-left">
                     <div className='row'>
                         <h1>Skills</h1>
                         <div className='col-4'>

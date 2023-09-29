@@ -1,8 +1,10 @@
 import './reachus.css'
 import backendService from '../../services/backendService'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { FaGithub, FaLinkedin, FaInstagram, FaYoutube, FaCopyright } from 'react-icons/fa'
 import SyncLoader from 'react-spinners/SyncLoader'
+import Aos from 'aos';
+import "aos/dist/aos.css";
 
 export default function ReachUs() {
 
@@ -11,6 +13,10 @@ export default function ReachUs() {
     const [loading, setLoading] = useState(false);
     const [disabled, setDisabled] = useState(false);
     const [submitButtonText, setSubmitButtonText] = useState('Submit');
+
+    useEffect(() => {
+        Aos.init({ duration: 1000 });
+    }, []);
 
     const override = {
         marginTop: "33%",
@@ -66,7 +72,7 @@ export default function ReachUs() {
         <div className='main_reachus_container pt-5'>
             <div className='row'>
                 <div className='col-6 sub_left_reachus_container'>
-                    <div className='container container_login_form'>
+                    <div className='container container_login_form' data-aos="fade-right">
                         <div className="wrapper">
                             <form>
                                 <h1>Join me</h1>
@@ -92,7 +98,7 @@ export default function ReachUs() {
                     </div>
                 </div>
                 <div className='col-6 sub_right_reachus_container'>
-                    <div className='container container_contact_form'>
+                    <div className='container container_contact_form' data-aos="fade-left">
                         <div className="wrapper">
                             <form onSubmit={handleSubmit}>
                                 <h1>Contact me</h1>

@@ -1,7 +1,8 @@
 import './hobby.css'
 import bgTwo from './bg-8.jpg'
 import bgThree from './bg-9.jpg'
-import React from 'react'
+import React, { useEffect } from 'react'
+import "aos/dist/aos.css";
 
 import { SiAdobeaftereffects, SiAdobephotoshop, SiAdobepremierepro, SiAdobelightroom } from 'react-icons/si'
 
@@ -31,12 +32,15 @@ import { SiAdobeaftereffects, SiAdobephotoshop, SiAdobepremierepro, SiAdobelight
 
 export default function Hobby() {
 
+    useEffect(() => {
+    }, []);
+
     return (
         <div className=' main_hobby_container pt-3'>
-            <div className='container'>
+            <div className='container' data-aos="fade-up" data-aos-duration="1000">
                 <div className='row'>
                     <div className='col-2 mt-5'>
-                        <div className='row'>
+                        <div className='row' data-aos-duration="200" data-aos="fade-right">
                             <div className='col-12 mt-5'>
                                 <div className='container icon_hobby_container'>
                                     <SiAdobeaftereffects className='icon_hobby_skill' />
@@ -44,7 +48,7 @@ export default function Hobby() {
                                 </div>
                             </div>
                         </div>
-                        <div className='row'>
+                        <div className='row' data-aos-duration="400" data-aos="fade-right">
                             <div className='col-12 mt-3'>
                                 <div className='container icon_hobby_container'>
                                     <SiAdobephotoshop className='icon_hobby_skill' />
@@ -52,7 +56,7 @@ export default function Hobby() {
                                 </div>
                             </div>
                         </div>
-                        <div className='row'>
+                        <div className='row' data-aos-duration="600" data-aos="fade-right">
                             <div className='col-12 mt-3'>
                                 <div className='container icon_hobby_container'>
                                     <SiAdobepremierepro className='icon_hobby_skill' />
@@ -60,7 +64,7 @@ export default function Hobby() {
                                 </div>
                             </div>
                         </div>
-                        <div className='row'>
+                        <div className='row' data-aos-duration="800" data-aos="fade-right">
                             <div className='col-12 mt-3'>
                                 <div className='container icon_hobby_container_last'>
                                     <SiAdobelightroom className='icon_hobby_skill' />

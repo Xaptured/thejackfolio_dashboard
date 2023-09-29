@@ -71,16 +71,17 @@ function App() {
 			} */}
 			<div className={`fade-in-element ${isVisible ? 'visible' : ''}`}>
 				<Home workPageProp={workPage} hobbyPageProp={hobbyPage} reachusPageProp={reachusPage} />
-				<section ref={workPage}>
-					<Work />
-				</section>
-				<section ref={hobbyPage}>
-					<Hobby />
-				</section>
-				<section ref={reachusPage}>
-					<ReachUs />
-				</section>
 			</div>
+			<section ref={workPage}>
+				<Work />
+			</section>
+			<section ref={hobbyPage}>
+				<Hobby />
+			</section>
+			<section ref={reachusPage}>
+				<ReachUs />
+			</section>
+
 		</>
 	);
 }
