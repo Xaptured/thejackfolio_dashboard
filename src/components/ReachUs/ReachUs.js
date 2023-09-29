@@ -1,16 +1,26 @@
 import './reachus.css'
 import backendService from '../../services/backendService'
 import React, { useState } from 'react'
-
 import { FaGithub, FaLinkedin, FaInstagram, FaYoutube, FaCopyright } from 'react-icons/fa'
+import SyncLoader from 'react-spinners/SyncLoader'
 
 export default function ReachUs() {
 
     const [email, setEmail] = useState('');
     const [comment, setComment] = useState('');
+    const [loading, setLoading] = useState(false);
+    const [disabled, setDisabled] = useState(false);
+    const [submitButtonText, setSubmitButtonText] = useState('Submit');
+
+    const override = {
+        marginTop: "33%",
+        paddingLeft: "40%",
+
+    };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setLoading(true);
         const commentObject = {
             email: email,
             comments: comment,
@@ -18,11 +28,37 @@ export default function ReachUs() {
             message: null,
         };
         const result = await backendService.getCommentsData(commentObject);
+        setLoading(false);
         if (result.message === 'Request Processed') {
             setEmail('');
             setComment('');
-            // TODO: show banner as successfully sent comment
+            setDisabled(true);
+            setSubmitButtonText('Email sent successfully');
+            setTimeout(() => {
+                setSubmitButtonText('Submit');
+                setDisabled(false);
+            }, 3000);
+
+        } else {
+            setEmail('');
+            setComment('');
+            setDisabled(true);
+            setSubmitButtonText('Error occurred. Please try again later.');
+            setTimeout(() => {
+                setSubmitButtonText('Submit');
+                setDisabled(false);
+            }, 3000);
         }
+        // setTimeout(() => {
+        //     setLoading(false);
+        //     setDisabled(true);
+        //     setSubmitButtonText('Error occurred. Please try again later.');
+        //     setTimeout(() => {
+        //         setSubmitButtonText('Submit');
+        //         setDisabled(false);
+        //     }, 3000);
+
+        // }, 5000);
     }
 
 
@@ -64,13 +100,29 @@ export default function ReachUs() {
                                     <input type="email" placeholder="Email" value={email} onChange={event => setEmail(event.target.value)} required />
                                     <i className='bx bxs-user'></i>
                                 </div>
-                                <div className='mb-3 form-floating input-box'>
+                                <div className='mb-3 input-box'>
                                     <textarea placeholder="Write your comment" value={comment} onChange={event => setComment(event.target.value)} required></textarea>
                                     <i className='bx bxs-user'></i>
                                 </div>
-                                <button type="submit" className='btn btn-outline-light button_submit'>
-                                    Submit
-                                </button>
+                                {
+                                    loading ?
+                                        <div>
+                                            <div className=''>
+                                                <SyncLoader
+                                                    color={"#ffffff"}
+                                                    loading={loading}
+                                                    cssOverride={override}
+                                                    size={15}
+                                                />
+                                            </div>
+                                        </div>
+                                        :
+                                        <button type="submit" className='btn btn-outline-light button_submit' disabled={disabled}>
+                                            {
+                                                submitButtonText
+                                            }
+                                        </button>
+                                }
                             </form>
                         </div>
                     </div>

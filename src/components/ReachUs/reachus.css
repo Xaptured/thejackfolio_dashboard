@@ -46,7 +46,7 @@
   text-align: center;
 }
 .wrapper .input-box {
-  position: relative;
+  /* position: relative; */
   width: 100%;
   height: 50px;
   margin: 8% 0;
@@ -120,6 +120,15 @@
   margin-top: 21%;
   margin-bottom: 2%;
   font-family: "FontOne", sans-serif;
+}
+
+.loader {
+  margin-top: 30%;
+  padding-left: 45%;
+}
+
+.loader_margin_bottom {
+  margin-bottom: 35%;
 }
 
 .btn {
