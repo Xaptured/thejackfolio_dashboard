@@ -19,15 +19,6 @@ export default function Navigation(props) {
             <nav className="navbar navbar-expand-lg sticky-top pt-4 pb-4">
                 <div className="container-fluid">
                     <p className="logoName" data-aos="fade-down" data-aos-duration="1000">
-                        {
-                            /* <img
-                            src="/docs/5.3/assets/brand/bootstrap-logo.svg"
-                            alt="Logo"
-                            width="30"
-                            height="24"
-                            className="d-inline-block align-text-top"
-                            /> */
-                        }
                         TheJack-Folio
                     </p>
                     <button
