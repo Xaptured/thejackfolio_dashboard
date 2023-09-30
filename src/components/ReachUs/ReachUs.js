@@ -141,13 +141,18 @@ export default function ReachUs() {
                             <div className='col-6'>
                                 <div className='footer_container_left'>
                                     <div className='container'>
+                                        {/* TODO: Add links */}
                                         <FaGithub className='icon' />
                                         <span className="icon-space"></span>
                                         <FaLinkedin className='icon' />
                                         <span className="icon-space"></span>
-                                        <FaInstagram className='icon' />
+                                        <a href="https://www.instagram.com/xaptured__007/" target="_blank" rel="noreferrer">
+                                            <FaInstagram className='icon' />
+                                        </a>
                                         <span className="icon-space"></span>
-                                        <FaYoutube className='icon' />
+                                        <a href="https://www.youtube.com/channel/UCDKMpLyKzruI-q_aXS5l_Uw" target="_blank" rel="noreferrer">
+                                            <FaYoutube className='icon' />
+                                        </a>
                                     </div>
                                 </div>
                             </div>
