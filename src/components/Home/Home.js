@@ -2,7 +2,7 @@ import './home.css'
 import React, { useEffect } from 'react';
 import "aos/dist/aos.css";
 import Lottie from 'lottie-react';
-import animation from './animation_ln6ex82r.json';
+import animation from './animations/animation_ln6ex82r.json';
 
 import Navigation from './Navigation'
 
