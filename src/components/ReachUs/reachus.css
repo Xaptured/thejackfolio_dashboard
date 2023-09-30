@@ -213,3 +213,8 @@
   font-family: "FontOne", sans-serif;
   padding-left: 2%;
 }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

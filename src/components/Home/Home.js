@@ -1,7 +1,8 @@
 import './home.css'
 import React, { useEffect } from 'react';
-import Aos from 'aos';
 import "aos/dist/aos.css";
+import Lottie from 'lottie-react';
+import animation from './animation_ln6ex82r.json';
 
 import Navigation from './Navigation'
 
@@ -20,7 +21,7 @@ import Navigation from './Navigation'
 // }
 export default function Home(props) {
 	useEffect(() => {
-		Aos.init({ duration: 2000 });
+
 	}, []);
 
 	const { workPageProp, hobbyPageProp, reachusPageProp } = props;
@@ -43,10 +44,10 @@ export default function Home(props) {
 			<div className='row'>
 				<div className='container col-7 sub_left_home_container'>
 					<div className='container'>
-						<div className='description_container text-wrap' data-aos="fade-right">
+						<div className='description_container text-wrap' data-aos="fade-right" data-aos-duration="2000">
 							Who is Jagdeesh ?
 						</div>
-						<div className='description_body_container' data-aos="fade-up">
+						<div className='description_body_container' data-aos="fade-up" data-aos-duration="2000">
 							<p dangerouslySetInnerHTML={{ __html: replaceWithBr() }} />
 						</div>
 						<div className='container'>
@@ -56,8 +57,9 @@ export default function Home(props) {
 						</div>
 					</div>
 				</div>
-				<div className='col-1' />
-				<div className='col-4 sub_right_home_container'></div>
+				<div className='col-5 mt-5 sub_right_home_container'>
+					<Lottie animationData={animation} data-aos="zoom-out" data-aos-duration="3000" />
+				</div>
 			</div>
 		</div>
 	)
