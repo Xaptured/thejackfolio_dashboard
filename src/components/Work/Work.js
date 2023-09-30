@@ -1,7 +1,7 @@
 import './work.css'
 import React, { useEffect } from 'react'
-import coins from './Hotels.png'
-import coins2 from './coin2.png'
+import hotel from './assets/Hotels.png'
+import coin from './assets/coins.png'
 import Resume from './Resume.pdf'
 import Aos from 'aos';
 import "aos/dist/aos.css";
@@ -60,7 +60,7 @@ export default function Work() {
                                     </div>
                                     <div className='container image_card_wrapper'>
                                         <div className='image_card'>
-                                            <img src={coins2} alt="finance" />
+                                            <img src={coin} alt="finance" />
                                         </div>
                                     </div>
                                     <div className='container footer_card'>
@@ -78,7 +78,7 @@ export default function Work() {
                                     </div>
                                     <div className='container image_card_wrapper'>
                                         <div className='image_card'>
-                                            <img src={coins} alt="hotel" />
+                                            <img src={hotel} alt="hotel" />
                                         </div>
                                     </div>
                                     <div className='container footer_card'>
