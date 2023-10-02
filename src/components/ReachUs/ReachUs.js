@@ -70,70 +70,73 @@ export default function ReachUs() {
 
     return (
         <div className='main_reachus_container pt-5'>
-            <div className='row'>
-                <div className='col-6 sub_left_reachus_container'>
-                    <div className='container container_login_form' data-aos="fade-right">
-                        <div className="wrapper">
-                            <form>
-                                <h1>Join me</h1>
-                                <div className='mb-3 input-box'>
-                                    <input type="text" placeholder="Username" required />
-                                    <i className='bx bxs-user'></i>
-                                </div>
-                                <div className='mb-3 input-box'>
-                                    <input type="password" placeholder="Password" required />
-                                    <i className='bx bxs-user'></i>
-                                </div>
-                                <div className='remember-forgot'>
-                                    <a href="/">Forgot Password</a>
-                                </div>
-                                <button type="button" className='btn btn-outline-light button_login'>
-                                    Login
-                                </button>
-                                <div className="register-link">
-                                    <p>Dont have an account? <a href="/">Register</a></p>
-                                </div>
-                            </form>
+            <div className='container'>
+                <div className='row'>
+                    <div className='col-6 sub_left_reachus_container'>
+                        <div className='container container_login_form' data-aos="fade-up">
+                            <div className="wrapper">
+                                <form>
+                                    <h1>Join me</h1>
+                                    <div className='mb-3 input-box'>
+                                        <input type="text" placeholder="Username" required />
+                                        <i className='bx bxs-user'></i>
+                                    </div>
+                                    <div className='mb-3 input-box'>
+                                        <input type="password" placeholder="Password" required />
+                                        <i className='bx bxs-user'></i>
+                                    </div>
+                                    <div className='remember-forgot'>
+                                        <a href="/">Forgot Password</a>
+                                    </div>
+                                    <button type="button" className='btn btn-outline-light button_login'>
+                                        Login
+                                    </button>
+                                    <div className="register-link">
+                                        <p>Dont have an account? <a href="/">Register</a></p>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div className='col-6 sub_right_reachus_container'>
-                    <div className='container container_contact_form' data-aos="fade-left">
-                        <div className="wrapper">
-                            <form onSubmit={handleSubmit}>
-                                <h1>Contact me</h1>
-                                <div className='mb-3 input-box'>
-                                    <input type="email" placeholder="Email" value={email} onChange={event => setEmail(event.target.value)} required />
-                                    <i className='bx bxs-user'></i>
-                                </div>
-                                <div className='mb-3 input-box'>
-                                    <textarea placeholder="Write your comment" value={comment} onChange={event => setComment(event.target.value)} required></textarea>
-                                    <i className='bx bxs-user'></i>
-                                </div>
-                                {
-                                    loading ?
-                                        <div>
-                                            <div className=''>
-                                                <SyncLoader
-                                                    color={"#ffffff"}
-                                                    loading={loading}
-                                                    cssOverride={override}
-                                                    size={15}
-                                                />
+                    <div className='col-6 sub_right_reachus_container'>
+                        <div className='container container_contact_form' data-aos="fade-up">
+                            <div className="wrapper">
+                                <form onSubmit={handleSubmit}>
+                                    <h1>Contact me</h1>
+                                    <div className='mb-3 input-box'>
+                                        <input type="email" placeholder="Email" value={email} onChange={event => setEmail(event.target.value)} required />
+                                        <i className='bx bxs-user'></i>
+                                    </div>
+                                    <div className='mb-3 input-box'>
+                                        <textarea placeholder="Write your comment" value={comment} onChange={event => setComment(event.target.value)} required></textarea>
+                                        <i className='bx bxs-user'></i>
+                                    </div>
+                                    {
+                                        loading ?
+                                            <div>
+                                                <div className=''>
+                                                    <SyncLoader
+                                                        color={"#ffffff"}
+                                                        loading={loading}
+                                                        cssOverride={override}
+                                                        size={15}
+                                                    />
+                                                </div>
                                             </div>
-                                        </div>
-                                        :
-                                        <button type="submit" className='btn btn-outline-light button_submit' disabled={disabled}>
-                                            {
-                                                submitButtonText
-                                            }
-                                        </button>
-                                }
-                            </form>
+                                            :
+                                            <button type="submit" className='btn btn-outline-light button_submit' disabled={disabled}>
+                                                {
+                                                    submitButtonText
+                                                }
+                                            </button>
+                                    }
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+
             <div className='footer'>
                 <div className='footer_overlay'>
                     <div className='container'>
