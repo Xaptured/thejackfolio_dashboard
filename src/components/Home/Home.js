@@ -3,6 +3,9 @@ import React, { useEffect } from 'react';
 import "aos/dist/aos.css";
 import Lottie from 'lottie-react';
 import animation from './animations/animation_ln6ex82r.json';
+import animation2 from './animations/animation_ln6fqtvp.json'
+import animation3 from './animations/Ka1smE37kD.json'
+import animation4 from './animations/O4vIkHhfcO.json'
 
 import Navigation from './Navigation'
 
@@ -58,7 +61,23 @@ export default function Home(props) {
 					</div>
 				</div>
 				<div className='col-5 mt-5 sub_right_home_container'>
-					<Lottie animationData={animation} data-aos="zoom-out" data-aos-duration="3000" />
+					<div className='row'>
+						<Lottie animationData={animation} data-aos="zoom-out" data-aos-duration="3000" />
+					</div>
+					<div className='row'>
+						<div className='icons_container'>
+							<div className='lotty_icons'>
+								<Lottie animationData={animation2} data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000" />
+							</div>
+							<div className='lotty_icons'>
+								<Lottie animationData={animation3} data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000" />
+							</div>
+							<div className='lotty_icons'>
+								<Lottie animationData={animation4} data-aos="fade-up" data-aos-duration="2000" data-aos-delay="1000" />
+							</div>
+						</div>
+					</div>
+
 				</div>
 			</div>
 		</div>
