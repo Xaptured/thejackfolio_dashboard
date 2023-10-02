@@ -6,3 +6,8 @@
 .fade-in-element.visible {
   opacity: 1;
 }
+
+::selection {
+  background-color: white; /* Replace "your-color" with your desired color code */
+  color: black; /* Replace "your-text-color" with your desired text color code */
+}
