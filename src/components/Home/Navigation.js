@@ -2,7 +2,6 @@ import './navigation.css';
 import React, { useEffect } from "react";
 import "aos/dist/aos.css";
 
-
 export default function Navigation(props) {
 
     useEffect(() => {

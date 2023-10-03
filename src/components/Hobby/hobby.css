@@ -6,17 +6,14 @@
   background-repeat: no-repeat;
   background-position: center bottom;
   background-size: contain;
-  /* background-color: rgb(0, 255, 81); */
 }
 
 .sub_left_hobby_container {
   height: auto;
-  /* background-color: aqua; */
 }
 
 .sub_right_hobby_container {
   height: auto;
-  /* background-color: rgb(0, 255, 81); */
 }
 
 .icon_hobby_skill {
@@ -61,11 +58,9 @@ h1 {
   height: 83.5vh;
   width: 84.5%;
   padding-top: 4%;
-  /* background-color: rgb(0, 255, 81); */
   border: 2px solid grey;
   border-radius: 10px;
   backdrop-filter: blur(12px);
-  /* transform: rotate(90deg); */
 }
 
 .carousel_container {
@@ -74,14 +69,11 @@ h1 {
   border: 2px solid grey;
   border-radius: 10px;
   backdrop-filter: blur(12px);
-  /* background-color: aqua; */
-  /* height: 60vh; */
   width: 140%;
   transform-origin: 30% 60%;
 }
 
 .carousel {
-  /* transform-origin: 30% 80%; */
   border: 5px solid white;
 }
 
@@ -95,9 +87,6 @@ h1 {
   border: 2px solid grey;
   border-radius: 10px;
   padding: 12px;
-  /* background-color: aqua; */
-  /* padding-top: 2.5%; */
-  /* padding-bottom: 2.5%; */
   backdrop-filter: blur(5px);
   margin-top: 5%;
 }

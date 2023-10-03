@@ -1,0 +1,24 @@
+.eror_message_one {
+  font-family: "FontOne", sans-serif;
+  color: white;
+  font-size: 45px;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+}
+
+.eror_message_two {
+  font-family: "FontOne", sans-serif;
+  color: white;
+  font-size: 35px;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
+}
+
+.error_container {
+  border: 3px solid white;
+  border-radius: 12px;
+  margin-top: 20%;
+  backdrop-filter: blur(5px);
+}
