@@ -55,16 +55,6 @@ export default function ReachUs() {
                 setDisabled(false);
             }, 3000);
         }
-        // setTimeout(() => {
-        //     setLoading(false);
-        //     setDisabled(true);
-        //     setSubmitButtonText('Error occurred. Please try again later.');
-        //     setTimeout(() => {
-        //         setSubmitButtonText('Submit');
-        //         setDisabled(false);
-        //     }, 3000);
-
-        // }, 5000);
     }
 
 
@@ -73,7 +63,7 @@ export default function ReachUs() {
             <div className='container'>
                 <div className='row'>
                     <div className='col-6 sub_left_reachus_container'>
-                        <div className='container container_login_form' data-aos="fade-up">
+                        <div className='container container_login_form' data-aos="fade-right">
                             <div className="wrapper">
                                 <form>
                                     <h1>Join me</h1>
@@ -99,7 +89,7 @@ export default function ReachUs() {
                         </div>
                     </div>
                     <div className='col-6 sub_right_reachus_container'>
-                        <div className='container container_contact_form' data-aos="fade-up">
+                        <div className='container container_contact_form' data-aos="fade-left">
                             <div className="wrapper">
                                 <form onSubmit={handleSubmit}>
                                     <h1>Contact me</h1>
@@ -136,7 +126,6 @@ export default function ReachUs() {
                     </div>
                 </div>
             </div>
-
             <div className='footer'>
                 <div className='footer_overlay'>
                     <div className='container'>

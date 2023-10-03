@@ -1,6 +1,6 @@
 .fade-in-element {
-  opacity: 0; /* Start with opacity 0 */
-  transition: opacity 1s ease-in-out; /* Apply a 5-second transition to the opacity property */
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 .fade-in-element.visible {
@@ -8,6 +8,6 @@
 }
 
 ::selection {
-  background-color: white; /* Replace "your-color" with your desired color code */
-  color: black; /* Replace "your-text-color" with your desired text color code */
+  background-color: white;
+  color: black;
 }
