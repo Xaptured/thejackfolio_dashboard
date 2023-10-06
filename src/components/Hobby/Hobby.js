@@ -1,6 +1,4 @@
 import './hobby.css'
-import bgTwo from './bg-8.jpg'
-import bgThree from './bg-9.jpg'
 import React, { useEffect } from 'react'
 import "aos/dist/aos.css";
 import HashLoader from 'react-spinners/HashLoader';
@@ -19,10 +17,57 @@ export default function Hobby(props) {
         paddingTop: "40%",
     };
 
+    const renderThumbnails = () => {
+        const thumbnails = [];
+        const { youTubeResponse } = videosProp;
+
+        youTubeResponse.items.forEach((item, index) => {
+            if (index === 0) {
+                thumbnails.push(
+                    <div className="carousel-item active" data-bs-interval="3000">
+                        <img src={item.snippet.thumbnails.medium.url} className="d-block w-100" alt="..." />
+                    </div>
+                )
+            } else {
+                thumbnails.push(
+                    <div className="carousel-item" data-bs-interval="3000">
+                        <img src={item.snippet.thumbnails.medium.url} className="d-block w-100" alt="..." />
+                    </div>
+                )
+            }
+        });
+
+        return thumbnails;
+    }
+
+    const renderPosts = () => {
+        const posts = [];
+        const { response } = postsProp;
+
+        response.data.forEach((post, index) => {
+            if (post.media_type === 'IMAGE') {
+                if (index === 0) {
+                    posts.push(
+                        <div className="carousel-item rotate-image active" data-bs-interval="3000">
+                            <img src={post.media_url} className="d-block w-100" alt="..." />
+                        </div>
+                    )
+                } else {
+                    posts.push(
+                        <div className="carousel-item rotate-image" data-bs-interval="3000">
+                            <img src={post.media_url} className="d-block w-100" alt="..." />
+                        </div>
+                    )
+                }
+            }
+        });
+
+        return posts;
+    }
     return (
         <div className=' main_hobby_container pt-3'>
             {
-                loadingVideosProp && loadingPostsProp ?
+                !postsProp && !videosProp ?
                     <div className=''>
                         <HashLoader
                             color={"#ffffff"}
@@ -32,7 +77,7 @@ export default function Hobby(props) {
                         />
                     </div>
                     :
-                    videosProp.messsage === 'Request Processed' && postsProp.message === 'Request Processed' ?
+                    postsProp.message === 'Request Processed' && videosProp.messsage === 'Request Processed' ?
                         <div className='container' data-aos="fade-up" data-aos-duration="1000">
                             <div className='row'>
                                 <div className='col-2 mt-5'>
@@ -74,21 +119,21 @@ export default function Hobby(props) {
                                         <div className='instagram_heading'>
                                             Instagram
                                         </div>
-                                        <div className='container'>
-                                            <div className='container carousel_container'>
-                                                <div id="carouselExampleSlidesOnly" className="carousel slide vertical" data-bs-ride="carousel">
-                                                    <div className="carousel-inner">
-                                                        <div className="carousel-item active" data-bs-interval="2000">
-                                                            <img src={bgThree} className="d-block w-100" alt="..." />
-                                                        </div>
-                                                        <div className="carousel-item" data-bs-interval="2000">
-                                                            <img src={bgTwo} className="d-block w-100" alt="..." />
-                                                        </div>
-                                                        <div className="carousel-item" data-bs-interval="2000">
-                                                            <img src={bgThree} className="d-block w-100" alt="..." />
-                                                        </div>
-                                                    </div>
+                                        <div className='container carousel_container'>
+                                            <div id="carouselExampleSlidesOnly" className="carousel slide carousel-fade" data-bs-ride="carousel">
+                                                <div className="carousel-inner">
+                                                    {
+                                                        renderPosts()
+                                                    }
                                                 </div>
+                                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="prev">
+                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Previous</span>
+                                                </button>
+                                                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide="next">
+                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                    <span class="visually-hidden">Next</span>
+                                                </button>
                                             </div>
                                         </div>
                                     </div>
@@ -102,16 +147,18 @@ export default function Hobby(props) {
                                             <div className='container youtube_container'>
                                                 <div id="carouselExampleSlidesOnlyTwo" className="carousel slide" data-bs-ride="carousel">
                                                     <div className="carousel-inner">
-                                                        <div className="carousel-item active" data-bs-interval="2000">
-                                                            <img src={bgThree} className="d-block w-100" alt="..." />
-                                                        </div>
-                                                        <div className="carousel-item" data-bs-interval="2000">
-                                                            <img src={bgTwo} className="d-block w-100" alt="..." />
-                                                        </div>
-                                                        <div className="carousel-item" data-bs-interval="2000">
-                                                            <img src={bgThree} className="d-block w-100" alt="..." />
-                                                        </div>
+                                                        {
+                                                            renderThumbnails()
+                                                        }
                                                     </div>
+                                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleSlidesOnlyTwo" data-bs-slide="prev">
+                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Previous</span>
+                                                    </button>
+                                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleSlidesOnlyTwo" data-bs-slide="next">
+                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                        <span class="visually-hidden">Next</span>
+                                                    </button>
                                                 </div>
                                             </div>
                                         </div>
@@ -130,6 +177,7 @@ export default function Hobby(props) {
                                     </div>
                                 </div>
                             </div>
+
                         </div>
                         :
                         <Error errorName={'hobby'} />

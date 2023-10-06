@@ -27,10 +27,64 @@ export default function Work(props) {
         paddingTop: "40%",
     };
 
+    const renderOrganizations = () => {
+        const organizations = [];
+        const { professionalDetails } = detailsProp;
+        console.log('Profession details');
+        professionalDetails.forEach((detail, index) => {
+            if (index === 0) {
+                organizations.push(
+                    <div className="carousel-item active" data-bs-interval="2000">
+                        <div className="card">
+                            <div className='container header_card'>
+                                <p className='header_org_name'>{detail.organization.name}</p>
+                                <p className='header_date'>{detail.organization.fromDate} - {detail.organization.toDate}</p>
+                                <p className='header_designaton'>Jr. Software Developer</p>
+                            </div>
+                            <div className='container image_card_wrapper'>
+                                <div className='image_card'>
+                                    <img src={hotel} alt="finance" />
+                                </div>
+                            </div>
+                            <div className='container footer_card'>
+                                <p className='footer_project'>{detail.projects[0].name}</p>
+                                <p className='footer_desc'>{detail.projects[0].roles[0]}</p>
+                            </div>
+                        </div>
+                    </div>
+                )
+            } else {
+                organizations.push(
+                    <div className="carousel-item" data-bs-interval="2000">
+                        <div className="card">
+                            <div className='container header_card'>
+                                <p className='header_org_name'>{detail.organization.name}</p>
+                                <p className='header_date'>{detail.organization.fromDate} - {detail.organization.toDate}</p>
+                                <p className='header_designaton'>Software Developer</p>
+                            </div>
+                            <div className='container image_card_wrapper'>
+                                <div className='image_card'>
+                                    <img src={coin} alt="finance" />
+                                </div>
+                            </div>
+                            <div className='container footer_card'>
+                                <p className='footer_project'>{detail.projects[0].name}</p>
+                                <p className='footer_desc'>{detail.projects[0].roles[0]}</p>
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+        })
+
+        return organizations;
+
+    };
+
     return (
         <div className='container main_work_container pt-5'>
             {
-                loadingDetailsProp ?
+                !detailsProp ?
                     <div className=''>
                         <HashLoader
                             color={"#ffffff"}
@@ -45,12 +99,8 @@ export default function Work(props) {
                             <div className='col-7 sub_left_work_container' data-aos="fade-right">
                                 <h1>Organizations</h1>
                                 <div id="carouselExampleIndicators" className="carousel slide carousel_work_container">
-                                    <div className="carousel-indicators">
-                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
-                                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                                    </div>
                                     <div className="carousel-inner">
-                                        <div className="carousel-item active" data-bs-interval="2000">
+                                        {/* <div className="carousel-item active" data-bs-interval="2000">
                                             <div className="card">
                                                 <div className='container header_card'>
                                                     <p className='header_org_name'>Principal</p>
@@ -85,7 +135,10 @@ export default function Work(props) {
                                                     <p className='footer_desc'>enhancing features of the product and maintainance</p>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> */}
+                                        {
+                                            renderOrganizations()
+                                        }
                                     </div>
                                     <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
                                         <span className="carousel-control-prev-icon" aria-hidden="true"></span>
