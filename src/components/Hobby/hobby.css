@@ -56,7 +56,7 @@ h1 {
 
 .instagram_container {
   height: 83.5vh;
-  width: 84.5%;
+  width: 74.5%;
   padding-top: 4%;
   border: 2px solid grey;
   border-radius: 10px;
@@ -64,17 +64,16 @@ h1 {
 }
 
 .carousel_container {
-  padding: 12px;
-  transform: rotate(90deg);
-  border: 2px solid grey;
-  border-radius: 10px;
-  backdrop-filter: blur(12px);
-  width: 140%;
-  transform-origin: 30% 60%;
+  margin-left: 6%;
+  margin-top: 6%;
+}
+
+#carouselExampleSlidesOnly {
+  width: 90%;
 }
 
 .carousel {
-  border: 5px solid white;
+  border: 2px solid rgb(115, 112, 112);
 }
 
 .instagram_heading {
@@ -84,11 +83,16 @@ h1 {
 }
 
 .youtube_container {
-  border: 2px solid grey;
-  border-radius: 10px;
   padding: 12px;
   backdrop-filter: blur(5px);
-  margin-top: 5%;
+  margin-top: 2%;
+  width: 100%;
+}
+
+.rotate-image img {
+  height: 550px;
+  object-fit: cover;
+  object-position: center center;
 }
 
 .button_hobby {
