@@ -30,7 +30,6 @@ export default function Work(props) {
     const renderOrganizations = () => {
         const organizations = [];
         const { professionalDetails } = detailsProp;
-        console.log('Profession details');
         professionalDetails.forEach((detail, index) => {
             if (index === 0) {
                 organizations.push(

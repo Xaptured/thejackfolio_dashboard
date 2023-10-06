@@ -62,7 +62,7 @@ function App() {
 					<Hobby videosProp={videos} postsProp={posts} loadingVideosProp={loadingVideos} loadingPostsProp={loadingPosts} />
 				</section>
 				<section ref={reachusPage}>
-					<ReachUs />
+					<ReachUs detailsProp={details} />
 				</section>
 			</div>
 		</>
