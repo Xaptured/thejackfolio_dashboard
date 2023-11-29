@@ -1,5 +1,5 @@
 # thejackfolio_dashboard
-This is the actual dashboard for my portfolio website. Will add more things if necessary.
+This is the actual dashboard for my portfolio website.
 
 ## Available Scripts
 
