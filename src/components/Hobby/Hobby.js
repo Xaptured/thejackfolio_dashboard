@@ -20,14 +20,16 @@ export default function Hobby(props) {
     const renderThumbnails = () => {
         const thumbnails = [];
         const { youTubeResponse } = videosProp;
+        let isFirstThumbnail = true;
 
         youTubeResponse.items.forEach((item, index) => {
-            if (index === 0) {
+            if (isFirstThumbnail) {
                 thumbnails.push(
                     <div className="carousel-item active" data-bs-interval="3000">
                         <img src={item.snippet.thumbnails.medium.url} className="d-block w-100" alt="..." />
                     </div>
                 )
+                isFirstThumbnail = false;
             } else {
                 thumbnails.push(
                     <div className="carousel-item" data-bs-interval="3000">
@@ -43,15 +45,17 @@ export default function Hobby(props) {
     const renderPosts = () => {
         const posts = [];
         const { response } = postsProp;
+        let isFirstPost = true;
 
         response.data.forEach((post, index) => {
             if (post.media_type === 'IMAGE') {
-                if (index === 0) {
+                if (isFirstPost) {
                     posts.push(
                         <div className="carousel-item rotate-image active" data-bs-interval="3000">
                             <img src={post.media_url} className="d-block w-100" alt="..." />
                         </div>
                     )
+                    isFirstPost = false
                 } else {
                     posts.push(
                         <div className="carousel-item rotate-image" data-bs-interval="3000">
@@ -77,7 +81,7 @@ export default function Hobby(props) {
                         />
                     </div>
                     :
-                    postsProp.message === 'Request Processed' && videosProp.messsage === 'Request Processed' ?
+                    postsProp?.message === 'Request Processed' && videosProp?.messsage === 'Request Processed' ?
                         <div className='container' data-aos="fade-up" data-aos-duration="1000">
                             <div className='row'>
                                 <div className='col-2 mt-5'>
