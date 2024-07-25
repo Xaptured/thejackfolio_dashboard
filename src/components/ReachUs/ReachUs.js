@@ -11,8 +11,14 @@ export default function ReachUs(props) {
     const [email, setEmail] = useState('');
     const [comment, setComment] = useState('');
     const [loading, setLoading] = useState(false);
+    const [joiningLoading, setJoiningLoading] = useState(false);
+    const [joiningName, setJoiningName] = useState('');
+    const [joiningEmail, setJoiningEmail] = useState('');
+    const [description, setDescription] = useState('');
     const [disabled, setDisabled] = useState(false);
+    const [joiningDisabled, setJoiningDisabled] = useState(false);
     const [submitButtonText, setSubmitButtonText] = useState('Submit');
+    const [submitJoiningButtonText, setSubmitJoiningButtonText] = useState('Join');
 
     const { detailsProp } = props;
 
@@ -26,6 +32,47 @@ export default function ReachUs(props) {
 
     };
 
+    const joiningOverride = {
+        marginTop: "18%",
+        paddingLeft: "40%",
+
+    };
+
+    const handleJoinSubmit = async (event) => {
+        event.preventDefault();
+        setJoiningLoading(true);
+        const joiningObject = {
+            name: joiningName,
+            email: joiningEmail,
+            description: description,
+            message: null,
+        };
+        const result = await backendService.saveJoinersData(joiningObject);
+        setJoiningLoading(false);
+        if (result.message === 'Request Processed') {
+            setJoiningName('');
+            setJoiningEmail('');
+            setDescription('');
+            setJoiningDisabled(true);
+            setSubmitJoiningButtonText('Email sent successfully');
+            setTimeout(() => {
+                setSubmitJoiningButtonText('Join');
+                setJoiningDisabled(false);
+            }, 3000);
+
+        } else {
+            setJoiningName('');
+            setJoiningEmail('');
+            setDescription('');
+            setJoiningDisabled(true);
+            setSubmitJoiningButtonText('Error occurred. Please try again later.');
+            setTimeout(() => {
+                setSubmitJoiningButtonText('Join');
+                setJoiningDisabled(false);
+            }, 3000);
+        }
+    }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         setLoading(true);
@@ -35,7 +82,7 @@ export default function ReachUs(props) {
             replied: false,
             message: null,
         };
-        const result = await backendService.getCommentsData(commentObject);
+        const result = await backendService.saveCommentsData(commentObject);
         setLoading(false);
         if (result.message === 'Request Processed') {
             setEmail('');
@@ -67,25 +114,39 @@ export default function ReachUs(props) {
                     <div className='col-6 sub_left_reachus_container'>
                         <div className='container container_login_form' data-aos="fade-right">
                             <div className="wrapper">
-                                <form>
-                                    <h1>Join me</h1>
+                                <form onSubmit={handleJoinSubmit}>
+                                    <h1>Join my team</h1>
                                     <div className='mb-3 input-box'>
-                                        <input type="text" placeholder="Username" required />
+                                        <input type="text" placeholder="Name" value={joiningName} onChange={event => setJoiningName(event.target.value)} required />
                                         <i className='bx bxs-user'></i>
                                     </div>
                                     <div className='mb-3 input-box'>
-                                        <input type="password" placeholder="Password" required />
+                                        <input type="email" placeholder="Email" value={joiningEmail} onChange={event => setJoiningEmail(event.target.value)} required />
                                         <i className='bx bxs-user'></i>
                                     </div>
-                                    <div className='remember-forgot'>
-                                        <a href="/">Forgot Password</a>
+                                    <div className='mb-3 input-box'>
+                                        <input type="text" placeholder="Description" value={description} onChange={event => setDescription(event.target.value)} required />
+                                        <i className='bx bxs-user'></i>
                                     </div>
-                                    <button type="button" className='btn btn-outline-light button_login'>
-                                        Login
-                                    </button>
-                                    <div className="register-link">
-                                        <p>Dont have an account? <a href="/">Register</a></p>
-                                    </div>
+                                    {
+                                        joiningLoading ?
+                                            <div>
+                                                <div className=''>
+                                                    <SyncLoader
+                                                        color={"#ffffff"}
+                                                        loading={joiningLoading}
+                                                        cssOverride={joiningOverride}
+                                                        size={15}
+                                                    />
+                                                </div>
+                                            </div>
+                                            :
+                                            <button type="submit" className='btn btn-outline-light button_join' disabled={joiningDisabled}>
+                                                {
+                                                    submitJoiningButtonText
+                                                }
+                                            </button>
+                                    }
                                 </form>
                             </div>
                         </div>
