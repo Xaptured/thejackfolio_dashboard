@@ -44,7 +44,7 @@ export default {
         }
     },
 
-    async getCommentsData(commentObject) {
+    async saveCommentsData(commentObject) {
         try {
             const result = await fetch('http://localhost:8086/comments/save-comments', {
                 method: 'POST',
@@ -59,6 +59,24 @@ export default {
             return jsonResult;
         } catch (error) {
             console.log("Error while posting Comments data", error);
+        }
+    },
+
+    async saveJoinersData(joiningObject) {
+        try {
+            const result = await fetch('http://localhost:8086/joiners/save-joiner', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(joiningObject)
+            });
+
+            const jsonResult = await result.json();
+
+            return jsonResult;
+        } catch (error) {
+            console.log("Error while posting joiner data", error);
         }
     }
 }

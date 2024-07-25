@@ -112,7 +112,14 @@
 
 .button_submit {
   width: 100%;
-  margin-top: 21%;
+  margin-top: 27%;
+  margin-bottom: 2%;
+  font-family: "FontOne", sans-serif;
+}
+
+.button_join {
+  width: 100%;
+  margin-top: 5%;
   margin-bottom: 2%;
   font-family: "FontOne", sans-serif;
 }

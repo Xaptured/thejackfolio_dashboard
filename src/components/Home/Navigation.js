@@ -40,10 +40,10 @@ export default function Navigation(props) {
                                 Hobby
                             </li>
                             <li className="nav-item ms-3 px-3" onClick={() => scrollToSection(props.reachusPageProp)} data-aos="fade-down" data-aos-duration="1100">
-                                Join Us
+                                Join Me
                             </li>
                             <li className="nav-item ms-3 px-3" onClick={() => scrollToSection(props.reachusPageProp)} data-aos="fade-down" data-aos-duration="1300">
-                                Contact Us
+                                Contact Me
                             </li>
                         </ul>
                     </div>
