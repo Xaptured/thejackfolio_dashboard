@@ -1,12 +1,13 @@
 import './reachus.css'
+import './footer.css'
 import backendService from '../../services/backendService'
 import React, { useState, useEffect } from 'react'
-import { FaGithub, FaLinkedin, FaInstagram, FaYoutube, FaCopyright } from 'react-icons/fa'
 import SyncLoader from 'react-spinners/SyncLoader'
 import Aos from 'aos';
 import "aos/dist/aos.css";
+import Footer from './Footer'
 
-export default function ReachUs(props) {
+export default function ReachUs() {
 
     const [email, setEmail] = useState('');
     const [comment, setComment] = useState('');
@@ -19,8 +20,6 @@ export default function ReachUs(props) {
     const [joiningDisabled, setJoiningDisabled] = useState(false);
     const [submitButtonText, setSubmitButtonText] = useState('Submit');
     const [submitJoiningButtonText, setSubmitJoiningButtonText] = useState('Join');
-
-    const { detailsProp } = props;
 
     useEffect(() => {
         Aos.init({ duration: 1000 });
@@ -189,63 +188,7 @@ export default function ReachUs(props) {
                     </div>
                 </div>
             </div>
-            <div className='footer'>
-                <div className='footer_overlay'>
-                    <div className='container'>
-                        <div className='row'>
-                            <div className='col-6'>
-                                <div className='footer_container_left'>
-                                    {
-                                        detailsProp ?
-                                            <div className='container'>
-                                                <a href={detailsProp.personalDetails.link.githubLink} target="_blank" rel="noreferrer">
-                                                    <FaGithub className='icon' />
-                                                </a>
-                                                <span className="icon-space"></span>
-                                                <a href={detailsProp.personalDetails.link.linkedinLink} target="_blank" rel="noreferrer">
-                                                    <FaLinkedin className='icon' />
-                                                </a>
-                                                <span className="icon-space"></span>
-                                                <a href={detailsProp.personalDetails.link.instagramLink} target="_blank" rel="noreferrer">
-                                                    <FaInstagram className='icon' />
-                                                </a>
-                                                <span className="icon-space"></span>
-                                                <a href={detailsProp.personalDetails.link.youtubeLink} target="_blank" rel="noreferrer">
-                                                    <FaYoutube className='icon' />
-                                                </a>
-                                            </div>
-                                            :
-                                            <div className='container'>
-                                                <a href="https://github.com/Xaptured" target="_blank" rel="noreferrer">
-                                                    <FaGithub className='icon' />
-                                                </a>
-                                                <span className="icon-space"></span>
-                                                <a href="https://github.com/Xaptured" target="_blank" rel="noreferrer">
-                                                    <FaLinkedin className='icon' />
-                                                </a>
-                                                <span className="icon-space"></span>
-                                                <a href="https://www.instagram.com/xaptured__007/" target="_blank" rel="noreferrer">
-                                                    <FaInstagram className='icon' />
-                                                </a>
-                                                <span className="icon-space"></span>
-                                                <a href="https://www.youtube.com/channel/UCDKMpLyKzruI-q_aXS5l_Uw" target="_blank" rel="noreferrer">
-                                                    <FaYoutube className='icon' />
-                                                </a>
-                                            </div>
-                                    }
-
-                                </div>
-                            </div>
-                            <div className='col-6'>
-                                <div className='copyright_container'>
-                                    <FaCopyright className='copyright_icon' />
-                                    <span className='copyright_content'>Copyright 2023. All rigts reserved by TheJackFolio. Created by Jack with Love.</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <Footer />
         </div>
     )
 }
