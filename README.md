@@ -1,5 +1,9 @@
 # thejackfolio_dashboard
-This is the actual dashboard for my portfolio website. Will add more details if necessary.
+### This is the actual dashboard for my portfolio website. Will add more details if necessary.
+
+[![Build and Test React Application](https://github.com/Xaptured/thejackfolio_dashboard/actions/workflows/buil-and-test.yml/badge.svg)](https://github.com/Xaptured/thejackfolio_dashboard/actions/workflows/buil-and-test.yml)
+
+[![Dependabot Updates](https://github.com/Xaptured/thejackfolio_dashboard/actions/workflows/dependabot/dependabot-updates/badge.svg)](https://github.com/Xaptured/thejackfolio_dashboard/actions/workflows/dependabot/dependabot-updates)
 
 ## Available Scripts
 
