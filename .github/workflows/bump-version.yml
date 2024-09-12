@@ -45,19 +45,22 @@ jobs:
       # Step 6: Commit the updated package.json
       - name: Commit version change
         run: |
-          git switch main
-          git checkout -b "VERSION-UPGRADE-AUTO"
           git add package.json package-lock.json
           git commit -m "Bump version to $(npm pkg get version | tr -d '\"')"
-          git push origin "VERSION-UPGRADE-AUTO"
 
-      # Step 7: Create a Pull Request
+      # Step 7: Create a new branch called VERSION-UPGRADE from main
+      - name: Create and push to VERSION-UPGRADE branch
+        run: |
+          git checkout -b VERSION-UPGRADE
+          git push --set-upstream origin VERSION-UPGRADE
+
+      # Step 8: Create a Pull Request
       - name: Create a Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: "Bump version to $(npm pkg get version | tr -d '\"')"
-          branch: version-bump-${{ github.event.inputs['version-type'] }}
+          branch: VERSION-UPGRADE
           title: "Bump version to $(npm pkg get version | tr -d '\"')"
           body: |
             This pull request bumps the version to $(npm pkg get version | tr -d '\"').
