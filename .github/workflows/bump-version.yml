@@ -38,17 +38,12 @@ jobs:
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
 
-      # Step 5: Bump the version based on the user input
-      - name: Bump version
-        run: npm version ${{ github.event.inputs['version-type'] }}
-
-      - name: Debug - Check git status
-        run: git status
-
       # Step 6: Commit the updated package.json
       - name: Commit version change
         run: |
           git checkout -b VERSION-UPGRADE
+          npm version ${{ github.event.inputs['version-type'] }}
+          git status
           git add .
           git commit -m "Bump version"
           git push --set-upstream origin VERSION-UPGRADE --force
