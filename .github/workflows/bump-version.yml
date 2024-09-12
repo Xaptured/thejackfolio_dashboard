@@ -42,13 +42,16 @@ jobs:
       - name: Bump version
         run: npm version ${{ github.event.inputs['version-type'] }}
 
+      - name: Debug - Check git status
+        run: git status
+
       # Step 6: Commit the updated package.json
       - name: Commit version change
         run: |
           git checkout -b VERSION-UPGRADE
-          git add package.json package-lock.json
-          git commit -m "Bump version to $(npm pkg get version | tr -d '\"')"
-          git push --set-upstream origin VERSION-UPGRADE
+          git add .
+          git commit -m "Bump version"
+          git push --set-upstream origin VERSION-UPGRADE --force
 
       # Step 8: Create a Pull Request
       - name: Create a Pull Request
