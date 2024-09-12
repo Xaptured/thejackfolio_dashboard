@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
       version-type:
-        description: 'Select the version type'
+        description: 'Select the version type (patch, minor, major)'
         required: true
         default: patch
         type: choice
@@ -32,20 +32,24 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Bump the version based on the user input
+      # Step 4: Set Git config
+      - name: Configure Git user
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+
+      # Step 5: Bump the version based on the user input
       - name: Bump version
         run: npm version ${{ github.event.inputs['version-type'] }}
 
-      # Step 5: Commit the updated package.json
+      # Step 6: Commit the updated package.json
       - name: Commit version change
         run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
           git add package.json package-lock.json
           git commit -m "Bump version to $(npm pkg get version | tr -d '\"')"
           git push origin HEAD
 
-      # Step 6: Create a Pull Request
+      # Step 7: Create a Pull Request
       - name: Create a Pull Request
         uses: peter-evans/create-pull-request@v5
         with:
