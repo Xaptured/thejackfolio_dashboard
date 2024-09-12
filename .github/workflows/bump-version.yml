@@ -45,13 +45,9 @@ jobs:
       # Step 6: Commit the updated package.json
       - name: Commit version change
         run: |
+          git checkout -b VERSION-UPGRADE
           git add package.json package-lock.json
           git commit -m "Bump version to $(npm pkg get version | tr -d '\"')"
-
-      # Step 7: Create a new branch called VERSION-UPGRADE from main
-      - name: Create and push to VERSION-UPGRADE branch
-        run: |
-          git checkout -b VERSION-UPGRADE
           git push --set-upstream origin VERSION-UPGRADE
 
       # Step 8: Create a Pull Request
